@@ -57,10 +57,12 @@ public class Simulator {
 			//finche non faccio tutti i passeggeri
 			
 			for(Airport a: graph.vertexSet()){
-				double prob= Math.random();
-				if(prob>0.5){
-					presenti.put(a, presenti.get(a)+1);
-					K--;
+				if(K!=0){
+					double prob= Math.random();
+					if(prob>0.5){
+						presenti.put(a, presenti.get(a)+1);
+						K--;
+					}
 				}
 			}
 		}
@@ -81,7 +83,7 @@ public class Simulator {
 			double tempo = e.getTempo();
 			double tpartenza =0;
 			for(int i=1; i<=ore.length; i++){
-				if(i>=tpartenza){
+				if(i>=tempo){
 					tpartenza=i;
 					break;
 				}
